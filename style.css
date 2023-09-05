@@ -1,0 +1,165 @@
+:root {
+  --black-color: #161616;
+  --white-color: #f9f9f9;
+
+  --proj-height: 125px;
+  --proj-width: 450px;
+
+  --icon-size-mul: 1.4;
+  --icon-size: calc(var(--proj-height) / var(--icon-size-mul));
+  --icon-margin-sides: calc(calc(var(--proj-height) - var(--icon-size)) / 2);
+
+  --card-br: 35px;
+  --icon-br: 25px;
+
+
+  --status-dev-bg: #ffdbae;
+  --status-dev-outline: #ff8d00;
+
+  --status-outd-bg: #ffaeae;
+  --status-outd-outline: #ff0000;
+}
+
+@font-face {
+  src: url("./assets/fonts/SFProDisplay-Regular.ttf");
+  src: url("./assets/fonts/SFProDisplay-Medium.ttf");
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: var(--black-color);
+  font-family: SF Pro Display;
+  user-select: none;
+}
+
+.container {
+  width: 1000px;
+  margin: auto;
+}
+
+.textContainer {
+  margin-top: 20vh;
+  display: flex;
+}
+
+.mainText {
+  margin-top: 200px;
+  font-size: 7rem;
+  font-weight: 700;
+  color: var(--white-color);
+}
+
+.projects {
+  margin-top: 50px;
+}
+
+.projects:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.projects > div {
+  display: flex;
+  height: var(--proj-height);
+  width: var(--proj-width);
+  margin-bottom: 50px;
+  border-radius: var(--card-br);
+  background-color: var(--white-color);
+  float: left;
+  opacity: 0;
+
+  transition: all 0.4s cubic-bezier(.17,.22,0,.97);
+}
+
+.projects > div:active {
+  scale: 0.98;
+  transition: all 0.4s cubic-bezier(.17,.22,0,.97);
+}
+
+.projects > div:nth-child(2n) {
+  float: right;
+}
+
+.proceed {
+  height: var(--icon-size);
+  width: var(--icon-size);
+  margin: auto;
+  margin-left: var(--icon-margin-sides);
+  margin-right: var(--icon-margin-sides);
+  border-radius: var(--icon-br);
+}
+
+.proceed > img {
+  height: 100%;
+  width: 100%;
+  scale: 0.9;
+}
+
+.infoContainer {
+  width: calc(100% - calc(var(--icon-size) + var(--icon-margin-sides)));
+}
+
+.pNameContainer {
+  margin-top: calc(var(--icon-margin-sides) + 10px);
+  margin-bottom: 5px;
+  display: flex;
+}
+
+.pNameStatus {
+  width: 70px;
+  height: 7px;
+  margin: 0 10px 0 0;
+  padding: 10px;
+  font-size: 1.15rem;
+  text-align: center;
+  line-height: 7px;
+  border-radius: 10px;
+}
+
+.InDevStatus {
+  color: var(--status-dev-outline);
+  background-color: var(--status-dev-bg);
+  outline: 2px solid var(--status-dev-outline);
+}
+
+.OutdatedStatus {
+  color: var(--status-outd-outline);
+  background-color: var(--status-outd-bg);
+  outline: 2px solid var(--status-outd-outline);
+}
+
+.pName {
+  width: 100%;
+  margin: 0;
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+
+.pDesc {
+  margin-top: 2px;
+}
+
+
+@media (max-width: 1100px)  {
+  .textContainer {
+    width: 100%;
+    padding-left: 25px;
+  }
+
+  .mainText {
+    width: 100%;
+    text-align: center;
+  }
+
+  .projects {
+    display: grid;
+    justify-content: center;
+  }
+
+  .projects > div:nth-child(2n) {
+    float: left;
+  }
+}
