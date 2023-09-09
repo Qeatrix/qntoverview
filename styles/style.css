@@ -21,8 +21,8 @@
 }
 
 @font-face {
+  font-family: 'SF Pro Display';
   src: url("../assets/fonts/SFProDisplay-Regular.ttf");
-  src: url("../assets/fonts/SFProDisplay-Medium.ttf");
 }
 
 body {
